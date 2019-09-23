@@ -1,11 +1,12 @@
 <template>
 	<div class="home">
+		<div><a @click="addNewIndexes()">添加索引</a></div>	
 		<a-form>
 			<a-form-item>
         <ul>
           <li class="li" v-for="(item, index) in data" :key="index"><div>12323</div> </li>
         </ul>
-				
+				<a-button >123</a-button>
 			</a-form-item>
 		</a-form>
 	</div>
@@ -29,14 +30,24 @@ const data = [
 	}
 ];
 export default {
+
 	name: "home",
+	components: {
+		
+	},
 	data() {
 		return {
 			data
 		};
 	},
-	components: {
-		
+	
+	methods:{
+		addNewIndexes(){
+			let e = {title:'new title'} 
+			this.data = this.data.concat(e)
+			console.log('data',this.data, 'e',e);
+			
+		}
 	}
 };
 </script>
