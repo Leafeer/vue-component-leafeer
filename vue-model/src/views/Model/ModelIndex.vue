@@ -45,6 +45,7 @@ const data = [
     title: "Ant Design Title 2"
   }
 ];
+let id = 3
 export default {
   name: "home",
   components: {},
@@ -56,11 +57,15 @@ export default {
 
   methods: {
     addNewIndexes() {
-      let e = { title: "new title" };
+      
+      let e = { title: "new title",
+                id : id++ };
       this.data = this.data.concat(e);
       console.log("data", this.data, "e", e);
     },
-    deleteIndex(e) {},
+    deleteIndex(e) {
+      this.data.splice(this.data.indexOf(e.id), 1);
+    },
     ceshi() {
       console.log(this.data);
     }
