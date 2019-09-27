@@ -2,36 +2,36 @@
   <div class="all">
     <div class="top-steps">
       <a-steps :current="current">
-        <a-step >
+        <a-step>
           <!-- <span slot="title">Finished</span> -->
           <span slot="title">
             <router-link class="text" :to="{ name: 'modelBasic' }"
-              ><span @click="current=0" >基本信息</span>
-            </router-link></span
-          >
+              ><span @click="current = 0">基本信息</span>
+            </router-link>
+          </span>
         </a-step>
 
         <a-step>
-          <span slot="title"
-            ><router-link class="text" :to="{ name: 'modelField' }"
-              ><span @click="current=1" >字段信息</span>
-            </router-link></span
-          ></a-step
-        >
+          <span slot="title">
+            <router-link class="text" :to="{ name: 'modelField' }">
+              <span @click="current = 1">字段信息</span>
+            </router-link>
+          </span>
+        </a-step>
         <a-step>
-          <span slot="title"
-            ><router-link class="text" :to="{ name: 'modelIndex' }"
-              ><span @click="current=2" >索引设置</span>
-            </router-link></span
-          ></a-step
-        >
+          <span slot="title">
+            <router-link class="text" :to="{ name: 'modelIndex' }">
+              <span @click="current = 2">索引设置</span>
+            </router-link>
+          </span>
+        </a-step>
         <a-step>
-          <span slot="title"
-            ><router-link class="text" :to="{ name: 'modelMap' }"
-              ><span @click="current=3" >模型映射</span>
-            </router-link></span
-          ></a-step
-        >
+          <span slot="title">
+            <router-link class="text" :to="{ name: 'modelMap' }">
+              <span @click="current = 3">模型映射</span>
+            </router-link>
+          </span>
+        </a-step>
       </a-steps>
     </div>
 
@@ -41,22 +41,32 @@
   </div>
 </template>
 <script>
+import ModelBasic from "./ModelBasic";
+import ModelField from "./ModelField";
+import ModelIndex from "./ModelIndex";
+import ModelMap from "./ModelMap";
 export default {
-  data(){
-    return{
-      current:0
-    }
+  name: "modeladdnew",
+  components: {
+    ModelBasic,
+    ModelField,
+    ModelIndex,
+    ModelMap
+  },
+  data() {
+    return {
+      current: 0
+    };
   }
-}
+};
 </script>
 <style lang="less" scoped>
-
 .all {
   margin: 20px;
   background: #fff;
   .top-steps {
     padding: 52px;
-    .text{
+    .text {
       font-size: 18px;
       color: #666666;
       text-decoration: none;

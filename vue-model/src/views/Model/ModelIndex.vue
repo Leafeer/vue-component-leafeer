@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div >>
     <div class="top-add-btn"><a @click="addNewIndexes()">添加索引</a></div>
     <a-form>
       <a-form-item>
@@ -116,4 +116,5 @@ ul {
 .footer{
   text-align: center
 }
+
 </style>

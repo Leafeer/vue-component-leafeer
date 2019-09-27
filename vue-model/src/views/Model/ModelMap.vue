@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <a-tabs defaultActiveKey="1" @change="callback">
       <a-tab-pane tab="DB2" key="1"
         ><div><DB2></DB2></div
@@ -69,3 +69,6 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+
+</style>

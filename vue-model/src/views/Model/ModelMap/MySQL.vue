@@ -97,6 +97,7 @@
                 <a-table
                   :columns="sqlColums"
                   :dataSource="sqlTableData"
+                   :pagination="false"
                   bordered
                 >
                   <template slot="space" slot-scope="text, record">

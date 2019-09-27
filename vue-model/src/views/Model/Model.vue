@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div>
+  <div class='tree'>
+    <div >
       <Tree
-        class="tree"
+       
         :tablename="tableName"
         :isAddLeafSort="isAddLeafSort"
         :isLeafOperation="isLeafOperation"
@@ -434,7 +434,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .tree {
-  top: 63px;
+  position: relative;
 }
 .ant-layout-sider {
   background: #f1f2f7;

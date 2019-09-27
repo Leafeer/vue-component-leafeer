@@ -11,14 +11,14 @@
           </span>
         </div>
         <div class="text">
-          <span>物理表名：</span> <span><a-input class="ipt"></a-input></span
-          ><span
-            ><a-select style="width: 80px"
-              ><a-select-option value="day">天</a-select-option
-              ><a-select-option value="mouth">月</a-select-option
-              ><a-select-option value="year">年</a-select-option></a-select
-            ></span
-          >
+          <span>物理表名：</span> <span><a-input class="ipt"></a-input></span>
+          <span>
+            <a-select style="width: 80px">
+              <a-select-option value="day">天</a-select-option>
+              <a-select-option value="mouth">月</a-select-option>
+              <a-select-option value="year">年</a-select-option></a-select
+            >
+          </span>
         </div>
       </div>
     </div>
@@ -88,6 +88,7 @@
                 <a-table
                   :columns="sqlColums"
                   :dataSource="sqlTableData"
+                  :pagination="false"
                   bordered
                 >
                   <template slot="space" slot-scope="text, record">
@@ -213,6 +214,7 @@ const sqlColums = [
     scopedSlots: { customRender: "space" }
   }
 ];
+
 const sqlTableData = [];
 for (let i = 0; i < 4; i++) {
   sqlTableData.push({
@@ -221,7 +223,9 @@ for (let i = 0; i < 4; i++) {
     field: `Edrward ${i}`
   });
 }
+
 let sqlid = 2;
+
 import modelMapMixin from "./modelMapMixins";
 export default {
   name: "db2",
@@ -237,13 +241,13 @@ export default {
       pagination: {
         pageSize: 5
       },
-      sqlIndexCount:4
+      sqlIndexCount: 4
     };
   },
   methods: {
     addSql() {
       let e = { title: "new title", id: sqlid++ };
-      this.sqlData = this.sqlData.concat(e);
+      this.sqlData = this.sqlData.push(e);
       console.log("data", this.sqlData, "e", e);
     },
     deleteSql(e) {
@@ -251,19 +255,18 @@ export default {
     },
     deleteIndex(key) {
       console.log("123", key);
-      const dataSource = [...this.sqlTableData];
+      let dataSource = [...this.sqlTableData];
       this.sqlTableData = dataSource.filter(item => item.key !== key);
     },
     addIndex() {
-      const { sqlIndexCount, sqlTableData } = this;
-      const newData = {
+      let { sqlIndexCount, sqlTableData } = this;
+      let newData = {
         key: sqlIndexCount,
         index: `Edward King ${sqlIndexCount}`,
         field: `London, Park Lane no. ${sqlIndexCount}`
       };
       this.sqlTableData = [...sqlTableData, newData];
-      console.log(this.sqlTableData);
-      
+      // console.log(this.sqlTableData);
       this.sqlIndexCount = sqlIndexCount + 1;
     }
   }
